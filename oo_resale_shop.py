@@ -1,10 +1,19 @@
+"""
+Filename: oos_resale_shop.py 
+Description: Object-oriented code to run a small computer resale shop
+Author: Michelle Jiang
+Date: 2025-09-11
+"""
+# Imports the Computer class
+from computer import Computer
+
 class ResaleShop:
+    
+    inventory: list = []
 
-    # What attributes will it need?
-
-    # How will you set up your constructor?
-    # Remember: in python, all constructors have the same name (__init__)
-    def __init__():
-        pass # You'll remove this when you fill out your constructor
-
+    def __init__(self, inventory: list = []):
+        self.inventory = inventory
     # What methods will you need?
+    def buy(self, Computer):
+        self.inventory.append(Computer)
+        return self.inventory.index(Computer) 

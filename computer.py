@@ -1,10 +1,50 @@
+"""
+Filename: computer.py
+Description: The computer class for resale shop. 
+Author: Michelle Jiang
+Date: 2025-09-11
+"""
+
+# Imports the ResaleShop class
+from oo_resale_shop import ResaleShop
+
 class Computer:
 
-    # What attributes will it need?
+    description: str
+    processor_type: str
+    hard_drive_capacity: int
+    memory: int
+    operating_system: str
+    year_made: int
+    price: int
 
-    # How will you set up your constructor?
-    # Remember: in python, all constructors have the same name (__init__)
-    def __init__():
-        pass # You'll remove this when you fill out your constructor
+    def __init__(self, 
+                description: str,
+                processor_type: str,
+                hard_drive_capacity: int,
+                memory: int,
+                operating_system: str,
+                year_made: int,
+                price: int):
+        
+        self.description = description
+        self.processor_type = processor_type
+        self.hard_drive_capacity = hard_drive_capacity
+        self.memory = memory
+        self.operating_system = operating_system
+        self.year_made = year_made
+        self.price = price
 
-    # What methods will you need?
+        # What methods will you use? 
+    def createComputer(self):
+    
+        """
+        What am I confused by? 
+        1. all the functions in the procedural code require both inventory and computer classes 
+        2. I don't know where to put the main function or any of the other functions 
+        3. If I'm supposed to separate the methods, how am I supposed to do that when every time I update the computer I need to check against the inventory
+
+        What do I need to do? 
+        1. rewrite the functions so that they are able to work in the oo framework 
+        2. put the main function into one of the classes? so that it's the main class. I think it should be in the resale shop one but the main.py has it in a separate file. 
+        """
