@@ -5,9 +5,6 @@ Author: Michelle Jiang
 Date: 2025-09-11
 """
 
-# Imports the ResaleShop class
-from oo_resale_shop import ResaleShop
-
 class Computer:
 
     description: str
@@ -36,15 +33,20 @@ class Computer:
         self.price = price
 
         # What methods will you use? 
-    def createComputer(self):
-    
+        
         """
         What am I confused by? 
         1. all the functions in the procedural code require both inventory and computer classes 
+        
+        import computer class into resale shop--need to check if compt is in inventory --> import both into main
         2. I don't know where to put the main function or any of the other functions 
+        
+        can add main functions to class files or can use main.py to test the object 
+        
         3. If I'm supposed to separate the methods, how am I supposed to do that when every time I update the computer I need to check against the inventory
-
+        --> don't separate the methods import them into one another 
         What do I need to do? 
-        1. rewrite the functions so that they are able to work in the oo framework 
+       
+         1. rewrite the functions so that they are able to work in the oo framework 
         2. put the main function into one of the classes? so that it's the main class. I think it should be in the resale shop one but the main.py has it in a separate file. 
         """
