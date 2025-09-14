@@ -5,6 +5,9 @@ Author: Michelle Jiang
 Date: 2025-09-11
 """
 
+# Imports everything from oo_resale_shop.py
+from oo_resale_shop import *
+
 class Computer:
 
     description: str
@@ -31,8 +34,17 @@ class Computer:
         self.operating_system = operating_system
         self.year_made = year_made
         self.price = price
+        
+        """
+        Takes in an item_id and a new price, updates the price of the associated
+        computer if it is the inventory, prints error message otherwise
+        """
+        def update_price(self, inventory ResaleShop.inventory, item_id: int, new_price: int):
+            if inventory[item_id] is not None:
+                inventory[item_id]["price"] = new_price
+            else:
+                print("Item", item_id, "not found. Cannot update price.")
 
-        # What methods will you use? 
         
         """
         What am I confused by? 
