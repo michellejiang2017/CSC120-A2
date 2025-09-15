@@ -7,9 +7,8 @@ Date: 2025-09-11
 # Import a few useful containers from the typing module
 from typing import Optional
 
-
 """
-Computer Class which has atttributes description, processor type, hard drive capacity, memory, operating system, year made, and price. 
+Computer class which has atttributes description, processor type, hard drive capacity, memory, operating system, year made, and price. 
 """
 class Computer:
 
@@ -21,6 +20,9 @@ class Computer:
     year_made: int # the year the computer was made
     price: int # the price of the computer 
 
+    """
+    Constructor for the computer class which initializes the computer object. 
+    """
     def __init__(self, 
                 description: str,
                 processor_type: str,
@@ -39,9 +41,7 @@ class Computer:
         self.price = price
         
     """
-    Takes in the computer object and a new price, updates the price of the associated
-    computer  
-    --> in the resale shop file first check if it is the inventory, prints error message otherwise
+    Takes in the computer object and a new price, updates the price of the associated computer.   
     """
     def update_price(self, new_price: int):
         self.price = new_price
