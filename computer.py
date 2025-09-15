@@ -4,19 +4,22 @@ Description: The computer class for resale shop.
 Author: Michelle Jiang
 Date: 2025-09-11
 """
+# Import a few useful containers from the typing module
+from typing import Optional
 
-# Imports everything from oo_resale_shop.py
-from oo_resale_shop import *
 
+"""
+Computer Class which has atttributes description, processor type, hard drive capacity, memory, operating system, year made, and price. 
+"""
 class Computer:
 
-    description: str
-    processor_type: str
-    hard_drive_capacity: int
-    memory: int
-    operating_system: str
-    year_made: int
-    price: int
+    description: str # the name and description of the computer
+    processor_type: str # what processor the computer has 
+    hard_drive_capacity: int # the capacity of the hard drive
+    memory: int # the memory capacity
+    operating_system: str # the operating system of the computer
+    year_made: int # the year the computer was made
+    price: int # the price of the computer 
 
     def __init__(self, 
                 description: str,
@@ -35,30 +38,36 @@ class Computer:
         self.year_made = year_made
         self.price = price
         
-        """
-        Takes in an item_id and a new price, updates the price of the associated
-        computer if it is the inventory, prints error message otherwise
-        """
-        def update_price(self, inventory ResaleShop.inventory, item_id: int, new_price: int):
-            if inventory[item_id] is not None:
-                inventory[item_id]["price"] = new_price
-            else:
-                print("Item", item_id, "not found. Cannot update price.")
+    """
+    Takes in the computer object and a new price, updates the price of the associated
+    computer  
+    --> in the resale shop file first check if it is the inventory, prints error message otherwise
+    """
+    def update_price(self, new_price: int):
+        self.price = new_price
+    
+    """
+    Takes in the computer object and a new os, updates the os of the computer. 
+    """
+    def update_os(self, new_os: int): 
+        self.operating_system = new_os
+
+    """
+    Takes in the computer object and optionally a new os system, checks the age of the computer to determine a new price and optionally updates the os. 
+    """
+    def refurbish(self, new_os: Optional[str] = None):
+        if int(self.year_made) < 2000:
+            self.price = 0 # too old to sell, donation only
+        elif int(self.year_made) < 2012:
+            self.price = 250 # heavily-discounted price on machines 10+ years old
+        elif int(self.year_made) < 2018:
+            self.price = 550 # discounted price on machines 4-to-10 year old machines
+        else:
+            self.price = 1000 # recent stuff
+
+        if new_os is not None:
+            self.operating_system = new_os # update details after installing new OS
+        else:
+            return
 
         
-        """
-        What am I confused by? 
-        1. all the functions in the procedural code require both inventory and computer classes 
-        
-        import computer class into resale shop--need to check if compt is in inventory --> import both into main
-        2. I don't know where to put the main function or any of the other functions 
-        
-        can add main functions to class files or can use main.py to test the object 
-        
-        3. If I'm supposed to separate the methods, how am I supposed to do that when every time I update the computer I need to check against the inventory
-        --> don't separate the methods import them into one another 
-        What do I need to do? 
-       
-         1. rewrite the functions so that they are able to work in the oo framework 
-        2. put the main function into one of the classes? so that it's the main class. I think it should be in the resale shop one but the main.py has it in a separate file. 
-        """

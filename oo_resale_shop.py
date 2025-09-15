@@ -46,6 +46,17 @@ class ResaleShop:
         else:
             print("No inventory to display.")
 
+    """
+    Takes in an item_id, removes the associated computer if it is the inventory, 
+    prints error message otherwise
+    """
+    def sell(self, item_id: int):
+        if self.inventory[item_id] is not None:
+            self.inventory.pop(item_id)
+            print("Item", item_id, "sold!")
+        else: 
+            print("Item", item_id, "not found. Please select another item to sell.")
+
 def main():
 
         # Make the resale shop 
@@ -75,6 +86,14 @@ def main():
     myShop.print_inventory()
     print("Done.\n")
 
+    # Now, let's sell it!
+    print("Selling Item ID:", computer_id)
+    myShop.sell(computer_id)
+    
+    # Make sure it worked by checking inventory
+    print("Checking inventory...")
+    myShop.print_inventory()
+    print("Done.\n")
     
     return 
 
