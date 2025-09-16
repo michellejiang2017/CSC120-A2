@@ -41,9 +41,9 @@ __Y__ 1 pt: Classes & class members all have header comments
 
 __Y__ 1 pt: Clear and consistent indentation
 
-__PART__ 1 pt: Adheres to conventions on naming / capitalization 
+__Y__ 1 pt: Adheres to conventions on naming / capitalization 
 
-__PART__ 1 pt: Methods and variables all have clear and descriptive names
+__Y__ 1 pt: Methods and variables all have clear and descriptive names
 
 __Y__ 1 pt: All required files included with submission (including completed checklist file)
 
