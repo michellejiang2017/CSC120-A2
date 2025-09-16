@@ -52,7 +52,7 @@ class Computer:
     Takes in the computer object and a new os, 
     updates the os of the computer. 
     """
-    def update_os(self, new_OS: int): 
+    def update_os(self, new_OS: str): 
         self.operating_system = new_OS
 
     """

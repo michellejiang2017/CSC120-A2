@@ -52,7 +52,7 @@ class ResaleShop:
     prints error message otherwise
     """
     def sell(self, item_id: int):
-        if self.inventory[item_id] is not None:
+        if (0 <= item_id < len(self.inventory)) and self.inventory[item_id] is not None:
             self.inventory.pop(item_id)
             print("Item", item_id, "sold!")
         else: 
@@ -64,7 +64,7 @@ class ResaleShop:
     prints error message otherwise
     """
     def update_price(self, item_id: int, new_price: int):
-        if self.inventory[item_id] is not None: 
+        if (0 <= item_id < len(self.inventory)) and self.inventory[item_id] is not None:
             self.inventory[item_id].update_price(new_price)
         else:
             print("Item", item_id, "not found. Cannot update price.")
@@ -74,8 +74,8 @@ class ResaleShop:
     updates the price of the associated computer using the update price function from the computer.py file if it is the inventory, 
     prints error message otherwise
     """
-    def update_os(self, item_id: int, new_OS: int):
-        if self.inventory[item_id] is not None: 
+    def update_os(self, item_id: int, new_OS: str):
+        if (0 <= item_id < len(self.inventory)) and self.inventory[item_id] is not None:
             self.inventory[item_id].update_os(new_OS)
         else:
             print("Item", item_id, "not found. Cannot update operating system.")
@@ -86,7 +86,7 @@ class ResaleShop:
     prints error message otherwise
     """
     def refurbish(self, item_id: int, new_OS: Optional[str] = None):
-        if self.inventory[item_id] is not None:
+        if (0 <= item_id < len(self.inventory)) and self.inventory[item_id] is not None:
             self.inventory[item_id].refurbish(new_OS)
         else:
             print("Item", item_id, "not found. Please select another item to refurbish.")
