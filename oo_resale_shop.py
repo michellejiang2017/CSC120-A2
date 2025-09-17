@@ -59,37 +59,37 @@ class ResaleShop:
             print("Item", item_id, "not found. Please select another item to sell.")
 
     """
-    Takes in the ResaleShop object, an item_id and a new price, 
+    Takes in the ResaleShop object, the Computer object and a new price, 
     updates the price of the associated computer using the update price function from the computer.py file if it is the inventory, 
     prints error message otherwise
     """
-    def update_price(self, item_id: int, new_price: int):
-        if (0 <= item_id < len(self.inventory)) and self.inventory[item_id] is not None:
-            self.inventory[item_id].update_price(new_price)
+    def update_price(self, computer: Computer, new_price: int): 
+        if computer in self.inventory: 
+            computer.update_price(new_price)
         else:
-            print("Item", item_id, "not found. Cannot update price.")
+            print("Item not found. Cannot update price.")
 
     """
-    Takes in the ResaleShop object, an item_id and a new price, 
+    Takes in the ResaleShop object, the Computer object and a new price, 
     updates the price of the associated computer using the update price function from the computer.py file if it is the inventory, 
     prints error message otherwise
     """
-    def update_os(self, item_id: int, new_OS: str):
-        if (0 <= item_id < len(self.inventory)) and self.inventory[item_id] is not None:
-            self.inventory[item_id].update_os(new_OS)
+    def update_os(self, computer: Computer, new_OS: str):
+        if computer in self.inventory: 
+            computer.update_os(new_OS)
         else:
-            print("Item", item_id, "not found. Cannot update operating system.")
+            print("Item not found. Cannot update operating system.") 
 
     """
     Takes in the ResaleShop object, the Computer object, an item id and optionally a new os, 
     refurbishes the computer by updating price and optionally os, 
     prints error message otherwise
     """
-    def refurbish(self, item_id: int, new_OS: Optional[str] = None):
-        if (0 <= item_id < len(self.inventory)) and self.inventory[item_id] is not None:
-            self.inventory[item_id].refurbish(new_OS)
+    def refurbish(self, computer: Computer, new_OS: Optional[str] = None):
+        if computer in self.inventory:
+            computer.refurbish(new_OS)
         else:
-            print("Item", item_id, "not found. Please select another item to refurbish.")
+            print("Item not found. Please select another item to refurbish.")
 
 
 # Main code
@@ -127,7 +127,7 @@ def main():
     new_OS = "MacOS Monterey"
     print("Refurbishing Item ID:", computer_id, ", updating OS to", new_OS)
     print("Updating inventory...")
-    my_shop.refurbish(computer_id, new_OS)
+    my_shop.refurbish(computer_one, new_OS) 
     print("Done.\n")
 
     # Make sure it worked by checking inventory
@@ -137,7 +137,7 @@ def main():
 
     # Update the price
     print("Updating price...")
-    my_shop.update_price(computer_id, 1000)
+    my_shop.update_price(computer_one, 1000)
     print("Done.\n")
 
     # Make sure it worked by checking inventory
