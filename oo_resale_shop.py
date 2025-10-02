@@ -51,9 +51,9 @@ class ResaleShop:
     removes the associated computer if it is the inventory, 
     prints error message otherwise
     """
-    def sell(self, item_id: int):
-        if (0 <= item_id < len(self.inventory)) and self.inventory[item_id] is not None:
-            self.inventory.pop(item_id)
+    def sell(self, computer: Computer, item_id: int):
+        if computer in self.inventory: 
+            self.inventory.remove(computer)
             print("Item", item_id, "sold!")
         else: 
             print("Item", item_id, "not found. Please select another item to sell.")
@@ -147,7 +147,7 @@ def main():
 
     # Now, let's sell it!
     print("Selling Item ID:", computer_id)
-    my_shop.sell(computer_id)
+    my_shop.sell(computer_one, computer_id)
     
     # Make sure it worked by checking inventory
     print("Checking inventory...")
